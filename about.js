@@ -22,7 +22,7 @@ function ensureAuth() {
   const token = localStorage.getItem("praivacy-admin-token");
   const tenant = getStoredTenant();
   if (!token || !tenant) {
-    window.location.href = "/app.html";
+    window.location.href = "/index.html";
   }
 
   // Self-heal user info
@@ -102,13 +102,13 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("praivacy-admin-token");
     localStorage.removeItem(STORAGE_KEY);
-    window.location.href = "/app.html";
+    window.location.href = "/index.html";
   });
 }
 
 if (settingsBtn) {
   settingsBtn.addEventListener("click", () => {
-    window.location.href = "/app.html#settings";
+    window.location.href = "/index.html#settings";
   });
 }
 
