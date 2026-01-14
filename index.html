@@ -237,7 +237,7 @@
         p.text-xs {
             display: flex;
             flex-wrap: wrap;
-            position: absolute;
+            position: static;
         }
 
         footer .container {
@@ -245,8 +245,15 @@
         }
 
         footer p.text-xs.text-muted-foreground.text-center {
-            left: 412px;
             top: 67px;
+        }
+
+        /* Footer container div styles */
+        footer .container > div.flex {
+            padding-bottom: 5px;
+            padding-top: 0px;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 1);
         }
 
         /* Override some Lovable badge styles if needed, but keeping inline provided styles */
