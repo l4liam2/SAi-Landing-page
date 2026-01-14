@@ -170,6 +170,7 @@
             letter-spacing: 0.1em;
             font-size: 0.75rem;
             font-weight: 700;
+            text-align: center;
         }
 
         /* Animation Utilities */
@@ -688,45 +689,22 @@
         </main>
 
         <footer class="border-t border-white/[0.08]">
-            <div class="container mx-auto px-6 py-12">
-                <div class="flex flex-col items-center text-center">
-                    <a href="/" class="flex items-center gap-2.5 mb-6 group">
-                        <div
-                            class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-shield h-5 w-5 text-primary-foreground">
-                                <path
-                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
-                                </path>
-                            </svg>
-                        </div>
-                        <span class="text-xl font-bold tracking-tight">Sanitized <span
-                                class="gradient-text">Ai</span></span>
-                    </a>
-                    <p class="text-sm text-muted-foreground mb-8 max-w-sm text-balance">
-                        Protecting enterprises from shadow AI risks and sensitive data exposure in the age of
-                        generative AI.
-                    </p>
-
+            <div class="flex flex-col items-center text-center" style="justify-content: center;">
+                <a href="/" class="flex items-center gap-2.5 mb-6 group">
+                    <span class="text-xl font-bold tracking-tight" style="vertical-align: middle; border-width: 1px; border-color: rgba(0, 0, 0, 1);">Sanitized <span
+                            class="gradient-text">Ai</span></span>
                     <div
-                        class="flex flex-col md:flex-row items-center justify-between w-full pt-8 border-t border-white/[0.08]">
-                        <p class="text-xs text-muted-foreground">© 2026 Sanitized AI Inc. All rights reserved.</p>
-
-                        <div class="flex items-center gap-6 mt-4 md:mt-0">
-                            <a href="#" class="text-xs text-muted-foreground hover:text-white transition-colors">Privacy
-                                Policy</a>
-                            <a href="#" class="text-xs text-muted-foreground hover:text-white transition-colors">Terms
-                                of
-                                Service</a>
-                            <div
-                                class="flex items-center gap-2 text-xs text-muted-foreground px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.1]">
-                                <div class="h-1.5 w-1.5 rounded-full bg-success animate-pulse"></div>
-                                <span>All systems operational</span>
-                            </div>
-                        </div>
+                        class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] shadow-lg shadow-primary/25 group-hover:scale-110 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-shield h-5 w-5 text-primary-foreground">
+                            <path
+                                d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                            </path>
+                        </svg>
                     </div>
-                </div>
+                </a>
+                <p class="text-xs text-muted-foreground">© 2026 Sanitized AI Inc. All rights reserved.</p>
             </div>
         </footer>
     </div>
