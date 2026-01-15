@@ -622,6 +622,125 @@
                 transform: translateY(0);
             }
         }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            .hotspot {
+                width: 48px;
+                /* Larger touch target */
+                height: 48px;
+            }
+
+            .hotspot-dot {
+                inset: 12px;
+                /* Adjust dot size within larger container */
+            }
+
+            /* Hide hover tooltips on mobile */
+            .hotspot-tooltip {
+                display: none !important;
+            }
+
+            /* Responsive Text Sizes */
+            .intro-screen h1 {
+                font-size: 2rem;
+            }
+
+            .intro-screen p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .transition-screen h1 {
+                font-size: 1.75rem;
+            }
+
+            .transition-screen p {
+                font-size: 1rem;
+            }
+
+            /* Instruction Bar */
+            .mobile-instruction-bar {
+                display: flex !important;
+                position: absolute;
+                bottom: 50px;
+                /* Above controls */
+                left: 10px;
+                right: 10px;
+                background: rgba(15, 23, 42, 0.9);
+                backdrop-filter: blur(8px);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 12px;
+                border-radius: 8px;
+                color: #fff;
+                font-size: 0.9rem;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                z-index: 40;
+                pointer-events: none;
+                animation: fadeIn 0.3s ease;
+            }
+        }
+
+        .mobile-instruction-bar {
+            display: none;
+        }
+
+        /* Expand Button Styles */
+        .demo-expand-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .demo-expand-btn:hover {
+            background: rgba(15, 23, 42, 0.9);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Fullscreen State */
+        #demo-video-container.demo-fullscreen {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: none !important;
+            z-index: 9999 !important;
+            border-radius: 0 !important;
+            background: rgba(2, 6, 23, 0.85) !important;
+            /* Made nearly opaque to hide underlying content */
+            backdrop-filter: blur(12px) !important;
+            /* Increased blur */
+            padding: 40px !important;
+            margin: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        #demo-video-container.demo-fullscreen .demo-player {
+            max-width: 1150px;
+            /* Conserving aspect ratio, limited size */
+            width: 100%;
+            height: auto;
+            max-height: 90vh;
+            /* Ensure it fits vertically */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+        }
     </style>
 
 
@@ -773,6 +892,17 @@
                             <!-- Interactive Demo Embed (Direct Integration) -->
                             <div class="demo-wrapper">
                                 <div id="demo-player" class="demo-player">
+                                    <button id="demo-expand-btn" class="demo-expand-btn" aria-label="Expand Demo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-maximize-2">
+                                            <polyline points="15 3 21 3 21 9"></polyline>
+                                            <polyline points="9 21 3 21 3 15"></polyline>
+                                            <line x1="21" y1="3" x2="14" y2="10"></line>
+                                            <line x1="3" y1="21" x2="10" y2="14"></line>
+                                        </svg>
+                                    </button>
                                     <div id="loading" class="loading">Loading Demo...</div>
                                     <div id="demo-content" class="demo-content hidden">
                                         <div class="image-container">
@@ -813,6 +943,11 @@
                                             </svg>
                                             Restart Demo
                                         </button>
+                                        </svg>
+                                        Restart Demo
+                                        </button>
+                                        <!-- Mobile Instruction Bar -->
+                                        <div id="mobile-instruction" class="mobile-instruction-bar hidden"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1460,6 +1595,9 @@
             this.introScreen = document.getElementById('intro-screen');
             this.startBtn = document.getElementById('start-btn');
 
+            // Mobile Instruction
+            this.mobileInstruction = document.getElementById('mobile-instruction');
+
             // Init
             this.realSteps = this.data.filter(s => !s.type).length;
             this.totalSteps.textContent = this.realSteps;
@@ -1516,6 +1654,7 @@
                 return;
             } else {
                 this.introScreen.classList.add('hidden');
+                this.mobileInstruction.classList.add('hidden'); // Default hide, show later if needed
             }
 
             // Handle Transition Step
@@ -1524,11 +1663,13 @@
                 this.transitionScreen.classList.remove('hidden');
                 this.transitionTitle.textContent = step.title;
                 this.transitionSubtitle.textContent = step.subtitle;
+                this.mobileInstruction.classList.add('hidden');
                 return;
             } else {
                 this.transitionScreen.classList.add('hidden');
                 this.image.parentElement.classList.remove('hidden');
                 this.layer.classList.remove('hidden');
+                this.mobileInstruction.classList.remove('hidden');
             }
 
             // Update Image
@@ -1565,6 +1706,15 @@
                 step.annotations.forEach(note => {
                     this.createAnnotation(note);
                 });
+            }
+
+            // Update Mobile Instruction
+            if (step.hotspots && step.hotspots.length > 0) {
+                // Use text from first hotspot for simpler mobile instruction
+                this.mobileInstruction.textContent = step.hotspots[0].text;
+                this.mobileInstruction.classList.remove('hidden');
+            } else {
+                this.mobileInstruction.classList.add('hidden');
             }
 
             // Handle Last Step
@@ -1610,6 +1760,63 @@
     // Start
     document.addEventListener('DOMContentLoaded', () => {
         new DemoPlayer(demoData);
+
+        // Expand Logic
+        const expandBtn = document.getElementById('demo-expand-btn');
+        const container = document.getElementById('demo-video-container');
+        const maximizeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>`;
+        const minimizeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minimize-2"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>`;
+
+        // Placeholder to prevent layout shift
+        const placeholder = document.createElement('div');
+        placeholder.style.display = 'none'; // Initially hidden
+
+        function toggleFullscreen(isFullscreen) {
+            if (isFullscreen) {
+                // Determine current height to keep placeholder sized correctly (optional but good for preventing jump)
+                placeholder.style.height = container.offsetHeight + 'px';
+                placeholder.style.width = '100%';
+                placeholder.style.display = 'block';
+                placeholder.className = container.className.replace('reveal-on-scroll', '').replace('delay-300', ''); // Copy basic layout classes but remove animations
+
+                // Swap
+                container.parentNode.insertBefore(placeholder, container);
+                document.body.appendChild(container);
+
+                // Add class after move
+                setTimeout(() => container.classList.add('demo-fullscreen'), 10);
+
+                expandBtn.innerHTML = minimizeIcon;
+                expandBtn.setAttribute('aria-label', 'Minimize Demo');
+                document.body.style.overflow = 'hidden';
+            } else {
+                container.classList.remove('demo-fullscreen');
+
+                // Move back
+                if (placeholder.parentNode) {
+                    placeholder.parentNode.insertBefore(container, placeholder);
+                    placeholder.remove();
+                }
+
+                expandBtn.innerHTML = maximizeIcon;
+                expandBtn.setAttribute('aria-label', 'Expand Demo');
+                document.body.style.overflow = '';
+            }
+        }
+
+        if (expandBtn) {
+            expandBtn.addEventListener('click', () => {
+                const isFullscreen = !container.classList.contains('demo-fullscreen');
+                toggleFullscreen(isFullscreen);
+            });
+        }
+
+        // Close fullscreen on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && container.classList.contains('demo-fullscreen')) {
+                toggleFullscreen(false);
+            }
+        });
     });
 </script>
 
