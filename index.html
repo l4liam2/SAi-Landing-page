@@ -1068,10 +1068,7 @@
                                                 <path
                                                     d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966a.25.25 0 0 1 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
                                             </svg>
-                                            Restart Demo
-                                        </button>
-                                        </svg>
-                                        Restart Demo
+                                            <span data-i18n="demo.restart">Restart Demo</span>
                                         </button>
                                         <!-- Mobile Instruction Bar -->
                                         <div id="mobile-instruction" class="mobile-instruction-bar hidden"></div>
@@ -1663,7 +1660,7 @@
 </body>
 
 <script>
-    const demoData = [
+    window.demoData = [
         // Intro Step
         {
             id: 'intro',
@@ -1920,7 +1917,7 @@
 
     // Start
     document.addEventListener('DOMContentLoaded', () => {
-        new DemoPlayer(demoData);
+        new DemoPlayer(window.demoData);
 
         // Expand Logic
         const expandBtn = document.getElementById('demo-expand-btn');
