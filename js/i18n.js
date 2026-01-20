@@ -16,7 +16,7 @@ const translations = {
         "hero.subtitle": "Monitor, detect, and protect against unauthorized AI usage across your organization. Catch PII leaks and sensitive data exposure in LLM prompts before they become breaches.",
         "hero.cta.access": "Request Early Access",
         "hero.cta.demo": "Start Interactive Demo",
-        "hero.trusted": "Trusted by security teams at leading enterprises",
+        "hero.trusted": "Secures your team's usage of",
         "hero.trusted.fortune": "Fortune 500",
         "hero.trusted.enterprise": "Enterprise",
         "hero.trusted.startup": "Startup",
@@ -99,6 +99,7 @@ const translations = {
         "intake.form.message": "Message (Optional)",
         "intake.form.messagePlaceholder": "Tell us about your needs...",
         "intake.form.submit": "Submit Request",
+        "intake.form.microcopy": "We typically respond within 24 hours. Your information is kept strictly confidential.",
 
         // Demo (Dynamic Strings)
         "demo.loading": "Loading Demo...",
@@ -114,7 +115,12 @@ const translations = {
         "demo.transition.title": "Risk Manager View",
         "demo.transition.subtitle": "Reviewing anonymous risk events and insights.",
         "demo.transition.continue": "Continue",
-        "demo.step6": "Risk Managers Can View Data Insights"
+        "demo.step6": "Risk Managers Can View Data Insights",
+        "demo.step7": "Finish Demo",
+        "demo.end.title": "Ready to secure your AI usage?",
+        "demo.end.subtitle": "Get full visibility and control over Shadow AI in minutes.",
+        "demo.end.cta": "Book a Demo",
+        "demo.end.restart": "Restart Demo"
     },
     fr: {
         // Navigation
@@ -133,7 +139,7 @@ const translations = {
         "hero.subtitle": "Surveillez, détectez et protégez-vous contre l'utilisation non autorisée de l'IA dans votre entreprise. Interceptez les fuites de PII et l'exposition de données sensibles dans les prompts LLM avant qu'elles ne deviennent des brèches.",
         "hero.cta.access": "Demander un accès anticipé",
         "hero.cta.demo": "Lancer la démo interactive",
-        "hero.trusted": "Reconnu par les équipes de sécurité des grandes entreprises",
+        "hero.trusted": "Sécurise l'utilisation par votre équipe de",
         "hero.trusted.fortune": "Fortune 500",
         "hero.trusted.enterprise": "Entreprise",
         "hero.trusted.startup": "Startup",
@@ -216,6 +222,7 @@ const translations = {
         "intake.form.message": "Message (Optionnel)",
         "intake.form.messagePlaceholder": "Parlez-nous de vos besoins...",
         "intake.form.submit": "Envoyer la demande",
+        "intake.form.microcopy": "Nous répondons généralement sous 24 heures. Vos informations restent strictement confidentielles.",
 
         // Demo (Dynamic Strings)
         "demo.loading": "Chargement de la démo...",
@@ -231,7 +238,12 @@ const translations = {
         "demo.transition.title": "Vue du Gestionnaire de Risques",
         "demo.transition.subtitle": "Examen des événements de risque anonymes et des insights.",
         "demo.transition.continue": "Continuer",
-        "demo.step6": "Les managers de risques peuvent voir les insights de données"
+        "demo.step6": "Les managers de risques peuvent voir les insights de données",
+        "demo.step7": "Terminer la démo",
+        "demo.end.title": "Prêt à sécuriser votre utilisation de l'IA ?",
+        "demo.end.subtitle": "Obtenez une visibilité et un contrôle complets sur le Shadow AI en quelques minutes.",
+        "demo.end.cta": "Réserver une démo",
+        "demo.end.restart": "Redémarrer la démo"
     },
     es: {
         // Navigation
@@ -250,7 +262,7 @@ const translations = {
         "hero.subtitle": "Monitoree, detecte y protéjase contra el uso no autorizado de IA en su organización. Detecte fugas de PII y exposición de datos confidenciales en prompts de LLM antes de que se conviertan en brechas.",
         "hero.cta.access": "Solicitar acceso anticipado",
         "hero.cta.demo": "Iniciar demostración interactiva",
-        "hero.trusted": "Con la confianza de equipos de seguridad en empresas líderes",
+        "hero.trusted": "Asegura el uso por parte de su equipo de",
         "hero.trusted.fortune": "Fortune 500",
         "hero.trusted.enterprise": "Empresas",
         "hero.trusted.startup": "Startups",
@@ -333,6 +345,7 @@ const translations = {
         "intake.form.message": "Mensaje (Opcional)",
         "intake.form.messagePlaceholder": "Cuéntenos sobre sus necesidades...",
         "intake.form.submit": "Enviar solicitud",
+        "intake.form.microcopy": "Solemos responder en 24 horas. Su información se mantiene estrictamente confidencial.",
 
         // Demo (Dynamic Strings)
         "demo.loading": "Cargando demostración...",
@@ -348,7 +361,12 @@ const translations = {
         "demo.transition.title": "Vista del Gestor de Riesgos",
         "demo.transition.subtitle": "Revisando eventos de riesgo anónimos e insights.",
         "demo.transition.continue": "Continuar",
-        "demo.step6": "Los gestores de riesgos pueden ver insights de datos"
+        "demo.step6": "Los gestores de riesgos pueden ver insights de datos",
+        "demo.step7": "Finalizar demostración",
+        "demo.end.title": "¿Listo para asegurar su uso de IA?",
+        "demo.end.subtitle": "Obtenga visibilidad y control total sobre Shadow AI en minutos.",
+        "demo.end.cta": "Reservar una demostración",
+        "demo.end.restart": "Reiniciar demostración"
     },
     de: {
         // Navigation
@@ -367,7 +385,7 @@ const translations = {
         "hero.subtitle": "Überwachen, erkennen und schützen Sie sich vor unbefugter KI-Nutzung in Ihrem Unternehmen. Fangen Sie PII-Lecks und die Offenlegung sensibler Daten in LLM-Prompts ab, bevor sie zu Sicherheitslücken werden.",
         "hero.cta.access": "Frühzeitigen Zugang anfordern",
         "hero.cta.demo": "Interaktive Demo starten",
-        "hero.trusted": "Vertraut von Sicherheitsteams führender Unternehmen",
+        "hero.trusted": "Sichert die Nutzung Ihres Teams von",
         "hero.trusted.fortune": "Fortune 500",
         "hero.trusted.enterprise": "Unternehmen",
         "hero.trusted.startup": "Startup",
@@ -450,6 +468,7 @@ const translations = {
         "intake.form.message": "Nachricht (Optional)",
         "intake.form.messagePlaceholder": "Erzählen Sie uns von Ihren Bedürfnissen...",
         "intake.form.submit": "Anfrage senden",
+        "intake.form.microcopy": "Wir antworten in der Regel innerhalb von 24 Stunden. Ihre Daten werden streng vertraulich behandelt.",
 
         // Demo (Dynamic Strings)
         "demo.loading": "Demo wird geladen...",
@@ -465,7 +484,12 @@ const translations = {
         "demo.transition.title": "Risikomanager-Ansicht",
         "demo.transition.subtitle": "Überprüfung anonymer Risikoereignisse und Erkenntnisse.",
         "demo.transition.continue": "Weiter",
-        "demo.step6": "Risikomanager können Datenerkenntnisse einsehen"
+        "demo.step6": "Risikomanager können Datenerkenntnisse einsehen",
+        "demo.step7": "Demo beenden",
+        "demo.end.title": "Bereit, Ihre KI-Nutzung zu sichern?",
+        "demo.end.subtitle": "Erhalten Sie in Minuten volle Transparenz und Kontrolle über Shadow AI.",
+        "demo.end.cta": "Demo buchen",
+        "demo.end.restart": "Demo neu starten"
     }
 };
 
@@ -535,7 +559,8 @@ function applyTranslations() {
             },
             5: { hotspots: [{ index: 0, key: 'demo.step5' }] },
             'transition-1': { title: 'demo.transition.title', subtitle: 'demo.transition.subtitle' },
-            6: { hotspots: [{ index: 0, key: 'demo.step6' }] }
+            6: { hotspots: [{ index: 0, key: 'demo.step6' }] },
+            7: { hotspots: [{ index: 0, key: 'demo.step7' }] }
         };
 
         window.demoData.forEach(step => {

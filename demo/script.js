@@ -1,4 +1,4 @@
-const demoData = [
+window.demoData = [
     // Intro Step
     {
         id: 'intro',
@@ -7,18 +7,18 @@ const demoData = [
     },
 
     // Step 1: Click Extension Icon (Top Right)
-    { id: 1, image: '1.png', hotspots: [{ x: 87.5, y: 6.5, text: "User makes sure they have the Sanitized Ai extension installed", nextStep: 2 }] },
+    { id: 1, image: 'demo/1.png', hotspots: [{ x: 87.5, y: 6.5, text: "User makes sure they have the Sanitized Ai extension installed", nextStep: 2 }] },
 
     // Step 2: Click Text Input (Center-Left)
-    { id: 2, image: '2.png', hotspots: [{ x: 34, y: 51, text: "User Types Their Prompt", nextStep: 3 }] },
+    { id: 2, image: 'demo/2.png', hotspots: [{ x: 34, y: 51, text: "User Types Their Prompt", nextStep: 3 }] },
 
     // Step 3: Click 'Send' Arrow (Right of Input)
-    { id: 3, image: '3.png', hotspots: [{ x: 72, y: 67, text: "User Sends Prompt", nextStep: 4 }] },
+    { id: 3, image: 'demo/3.png', hotspots: [{ x: 72, y: 67, text: "User Sends Prompt", nextStep: 4 }] },
 
     // Step 4: Click 'Insert Sanitized' Button (Popup Bottom Right)
     {
         id: 4,
-        image: '4.png',
+        image: 'demo/4.png',
         hotspots: [{ x: 91.5, y: 71, text: "Insert Sanitized Prompt", nextStep: 5 }],
         annotations: [
             {
@@ -30,7 +30,7 @@ const demoData = [
     },
 
     // Step 5: Click 'OK' on Confirmation Dialog (Center)
-    { id: 5, image: '5.png', hotspots: [{ x: 60.5, y: 21.5, text: "Once the User Confirms the Replacement, the prompt is released and sent off.", nextStep: 'transition-1' }] },
+    { id: 5, image: 'demo/5.png', hotspots: [{ x: 60.5, y: 21.5, text: "Once the User Confirms the Replacement, the prompt is released and sent off.", nextStep: 'transition-1' }] },
 
     // Transition Step
     {
@@ -42,10 +42,16 @@ const demoData = [
     },
 
     // Step 6: Click 'Data Insights' (Left Sidebar)
-    { id: 6, image: '6.png', hotspots: [{ x: 12, y: 29, text: "Risk Managers Can View Data Insights", nextStep: 7 }] },
+    { id: 6, image: 'demo/6.png', hotspots: [{ x: 12, y: 29, text: "Risk Managers Can View Data Insights", nextStep: 7 }] },
 
     // Step 7: Final State
-    { id: 7, image: '7.png', hotspots: [], isLast: true }
+    { id: 7, image: 'demo/7.png', hotspots: [{ x: 47, y: 60, text: "Finish Demo", nextStep: 'end' }] },
+
+    // End Step
+    {
+        id: 'end',
+        type: 'end'
+    }
 ];
 
 class DemoPlayer {
@@ -63,6 +69,7 @@ class DemoPlayer {
         this.stepCount = document.getElementById('step-count');
         this.totalSteps = document.getElementById('total-steps');
         this.restartBtn = document.getElementById('restart-btn');
+        this.backBtn = document.getElementById('demo-back-btn');
         this.template = document.getElementById('hotspot-template');
 
         // Transition Elements
@@ -70,6 +77,10 @@ class DemoPlayer {
         this.transitionTitle = document.getElementById('transition-title');
         this.transitionSubtitle = document.getElementById('transition-subtitle');
         this.transitionBtn = document.getElementById('transition-btn');
+
+        // End Screen Elements
+        this.endScreen = document.getElementById('demo-end-screen');
+        this.endRestartBtn = document.getElementById('end-restart-btn');
 
         // Intro Elements
         this.introScreen = document.getElementById('intro-screen');
@@ -98,6 +109,14 @@ class DemoPlayer {
             this.renderStep(0);
         });
 
+        this.endRestartBtn.addEventListener('click', () => {
+            this.renderStep(0);
+        });
+
+        this.backBtn.addEventListener('click', () => {
+            this.goToPreviousStep();
+        });
+
         this.transitionBtn.addEventListener('click', () => {
             const step = this.data[this.currentStepIndex];
             if (step.nextStep) {
@@ -118,6 +137,12 @@ class DemoPlayer {
         });
     }
 
+    goToPreviousStep() {
+        if (this.currentStepIndex > 0) {
+            this.renderStep(this.currentStepIndex - 1);
+        }
+    }
+
     renderStep(index) {
         this.currentStepIndex = index;
         const step = this.data[index];
@@ -128,12 +153,15 @@ class DemoPlayer {
             this.layer.classList.add('hidden');
             this.introScreen.classList.remove('hidden');
             this.transitionScreen.classList.add('hidden');
+            this.endScreen.classList.add('hidden');
+            this.backBtn.classList.add('hidden');
 
             // Hide progress
             this.progressBar.style.width = '0%';
             return;
         } else {
             this.introScreen.classList.add('hidden');
+            this.backBtn.classList.remove('hidden');
         }
 
         // Handle Transition Step
@@ -146,15 +174,26 @@ class DemoPlayer {
             this.transitionScreen.classList.remove('hidden');
             this.transitionTitle.textContent = step.title;
             this.transitionSubtitle.textContent = step.subtitle;
+            this.endScreen.classList.add('hidden');
+            this.backBtn.classList.add('hidden');
 
             // Update Progress (Optional: keep same as previous or advance)
             // const progress = ((index + 1) / this.data.length) * 100;
             // this.progressBar.style.width = `${progress}%`;
 
             return; // Stop rendering image logic
-        } else {
-            // Ensure Transition is hidden
+        } else if (step.type === 'end') {
+            // Handle End Step
+            this.layer.classList.add('hidden');
             this.transitionScreen.classList.add('hidden');
+            this.endScreen.classList.remove('hidden');
+            this.backBtn.classList.add('hidden');
+            // Hide controls?
+            return;
+        } else {
+            // Ensure Transition and End are hidden
+            this.transitionScreen.classList.add('hidden');
+            this.endScreen.classList.add('hidden');
             this.image.parentElement.classList.remove('hidden');
             this.layer.classList.remove('hidden');
         }
@@ -199,7 +238,7 @@ class DemoPlayer {
             });
         }
 
-        // Handle Last Step
+        // Handle Last Step (Legacy check, kept just in case but likely handled by end step now)
         if (step.isLast) {
             this.restartBtn.classList.remove('hidden');
         } else {
@@ -242,6 +281,64 @@ class DemoPlayer {
 }
 
 // Start
+// Start
 document.addEventListener('DOMContentLoaded', () => {
-    new DemoPlayer(demoData);
+    new DemoPlayer(window.demoData);
+
+    // Expand Logic
+    const expandBtn = document.getElementById('demo-expand-btn');
+    const container = document.getElementById('demo-video-container');
+    const maximizeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>`;
+    const minimizeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minimize-2"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>`;
+
+    // Placeholder to prevent layout shift
+    const placeholder = document.createElement('div');
+    placeholder.style.display = 'none'; // Initially hidden
+
+    function toggleFullscreen(isFullscreen) {
+        if (isFullscreen) {
+            // Determine current height to keep placeholder sized correctly
+            placeholder.style.height = container.offsetHeight + 'px';
+            placeholder.style.width = '100%';
+            placeholder.style.display = 'block';
+            placeholder.className = container.className.replace('reveal-on-scroll', '').replace('delay-300', '');
+
+            // Swap
+            container.parentNode.insertBefore(placeholder, container);
+            document.body.appendChild(container);
+
+            // Add class after move
+            setTimeout(() => container.classList.add('demo-fullscreen'), 10);
+
+            expandBtn.innerHTML = minimizeIcon;
+            expandBtn.setAttribute('aria-label', 'Minimize Demo');
+            document.body.style.overflow = 'hidden';
+        } else {
+            container.classList.remove('demo-fullscreen');
+
+            // Move back
+            if (placeholder.parentNode) {
+                placeholder.parentNode.insertBefore(container, placeholder);
+                placeholder.remove();
+            }
+
+            expandBtn.innerHTML = maximizeIcon;
+            expandBtn.setAttribute('aria-label', 'Expand Demo');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (expandBtn) {
+        expandBtn.addEventListener('click', () => {
+            const isFullscreen = !container.classList.contains('demo-fullscreen');
+            toggleFullscreen(isFullscreen);
+        });
+    }
+
+    // Close fullscreen on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && container.classList.contains('demo-fullscreen')) {
+            toggleFullscreen(false);
+        }
+    });
 });

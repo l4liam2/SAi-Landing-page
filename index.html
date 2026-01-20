@@ -841,6 +841,45 @@
             /* Ensure it fits vertically */
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
         }
+
+        /* Demo End Screen */
+        .demo-end-screen {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 70;
+            text-align: center;
+            padding: 40px;
+            padding: 40px;
+        }
+
+        .demo-end-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .demo-end-content p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .demo-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
     </style>
 
 
@@ -986,19 +1025,36 @@
                         </div>
 
                         <div class="mt-16 pt-8 border-t border-white/[0.08]">
-                            <p class="eyebrow mb-6" data-i18n="hero.trusted">Trusted by security teams at leading
-                                enterprises</p>
-                            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-40">
-                                <div class="text-lg font-semibold text-muted-foreground"
-                                    data-i18n="hero.trusted.fortune">Fortune 500</div>
-                                <div class="text-lg font-semibold text-muted-foreground"
-                                    data-i18n="hero.trusted.enterprise">Enterprise</div>
-                                <div class="text-lg font-semibold text-muted-foreground"
-                                    data-i18n="hero.trusted.startup">Startup</div>
-                                <div class="text-lg font-semibold text-muted-foreground"
-                                    data-i18n="hero.trusted.government">Government</div>
-                                <div class="text-lg font-semibold text-muted-foreground"
-                                    data-i18n="hero.trusted.healthcare">Healthcare</div>
+                            <p class="eyebrow mb-6" data-i18n="hero.trusted">Secures your team's usage of</p>
+                            <div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70">
+                                <!-- OpenAI / ChatGPT -->
+                                <div
+                                    class="group flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300">
+                                    <span class="text-xl font-bold text-white">OpenAI</span>
+                                    <span
+                                        class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-muted-foreground">ChatGPT</span>
+                                </div>
+                                <!-- Anthropic / Claude -->
+                                <div
+                                    class="group flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300">
+                                    <span class="text-xl font-bold text-white">Anthropic</span>
+                                    <span
+                                        class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-muted-foreground">Claude</span>
+                                </div>
+                                <!-- Google / Gemini -->
+                                <div
+                                    class="group flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300">
+                                    <span class="text-xl font-bold text-white">Google</span>
+                                    <span
+                                        class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-muted-foreground">Gemini</span>
+                                </div>
+                                <!-- Microsoft / Copilot -->
+                                <div
+                                    class="group flex items-center gap-3 grayscale hover:grayscale-0 transition-all duration-300">
+                                    <span class="text-xl font-bold text-white">Microsoft</span>
+                                    <span
+                                        class="px-2 py-0.5 rounded text-[10px] font-mono bg-white/10 text-muted-foreground">Copilot</span>
+                                </div>
                             </div>
                         </div>
 
@@ -1049,6 +1105,25 @@
                                             <p id="transition-subtitle"></p>
                                             <button id="transition-btn" class="transition-btn"
                                                 data-i18n="demo.transition.continue">Continue</button>
+                                        </div>
+
+                                        <div id="demo-end-screen" class="demo-end-screen hidden">
+                                            <div class="demo-end-content">
+                                                <h2 data-i18n="demo.end.title">Ready to secure your AI usage?</h2>
+                                                <p data-i18n="demo.end.subtitle">Get full visibility and control over
+                                                    Shadow AI in minutes.</p>
+                                                <div class="demo-actions">
+                                                    <button onclick="window.location.href='/intake.html'"
+                                                        class="start-btn"
+                                                        style="padding: 16px 32px; font-size: 1.1rem; animation: none;">
+                                                        <span data-i18n="demo.end.cta">Book a Demo</span>
+                                                    </button>
+                                                    <button id="end-restart-btn" class="transition-btn"
+                                                        style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); box-shadow: none; animation: none; padding: 16px 32px; font-size: 1rem; color: #cbd5e1;">
+                                                        <span data-i18n="demo.end.restart">Restart Demo</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="demo-controls">
@@ -1659,323 +1734,6 @@
     </script>
 </body>
 
-<script>
-    window.demoData = [
-        // Intro Step
-        {
-            id: 'intro',
-            type: 'intro',
-            nextStep: 1
-        },
-
-        // Step 1: Click Extension Icon (Top Right)
-        { id: 1, image: 'demo/1.png', hotspots: [{ x: 87.5, y: 6.5, text: "User makes sure they have the extension installed", nextStep: 2 }] },
-
-        // Step 2: Click Text Input (Center-Left)
-        { id: 2, image: 'demo/2.png', hotspots: [{ x: 34, y: 51, text: "User Types Their Prompt", nextStep: 3 }] },
-
-        // Step 3: Click 'Send' Arrow (Right of Input)
-        { id: 3, image: 'demo/3.png', hotspots: [{ x: 72, y: 67, text: "User Sends Prompt", nextStep: 4 }] },
-
-        // Step 4: Click 'Insert Sanitized' Button (Popup Bottom Right)
-        {
-            id: 4,
-            image: 'demo/4.png',
-            hotspots: [{ x: 91.5, y: 71, text: "Insert Sanitized Prompt", nextStep: 5 }],
-            annotations: [
-                {
-                    x: 75,
-                    y: 40,
-                    text: "Once a prompt is flagged, users can choose how they want to move forward. Sanitized Ai lets the user choose the level of risk they want to take."
-                }
-            ]
-        },
-
-        // Step 5: Click 'OK' on Confirmation Dialog (Center)
-        { id: 5, image: 'demo/5.png', hotspots: [{ x: 60.5, y: 21.5, text: "Once the User Confirms the Replacement, the prompt is released and sent off.", nextStep: 'transition-1' }] },
-
-        // Transition Step
-        {
-            id: 'transition-1',
-            type: 'transition',
-            title: "Risk Manager View",
-            subtitle: "Reviewing anonymous risk events and insights.",
-            nextStep: 6
-        },
-
-        // Step 6: Click 'Data Insights' (Left Sidebar)
-        { id: 6, image: 'demo/6.png', hotspots: [{ x: 12, y: 29, text: "Risk Managers Can View Data Insights", nextStep: 7 }] },
-
-        // Step 7: Final State
-        { id: 7, image: 'demo/7.png', hotspots: [], isLast: true }
-    ];
-
-    class DemoPlayer {
-        constructor(data) {
-            this.data = data;
-            this.currentStepIndex = 0;
-
-            // Elements
-            this.player = document.getElementById('demo-player');
-            this.content = document.querySelector('#demo-player .demo-content'); // More specific selector
-            this.loading = document.getElementById('loading');
-            this.image = document.getElementById('current-image');
-            this.layer = document.getElementById('hotspaces-layer');
-            this.progressBar = document.getElementById('progress-bar');
-            this.stepCount = document.getElementById('step-count');
-            this.totalSteps = document.getElementById('total-steps');
-            this.restartBtn = document.getElementById('restart-btn');
-            this.backBtn = document.getElementById('demo-back-btn');
-            this.template = document.getElementById('hotspot-template');
-
-            // Transition Elements
-            this.transitionScreen = document.getElementById('transition-screen');
-            this.transitionTitle = document.getElementById('transition-title');
-            this.transitionSubtitle = document.getElementById('transition-subtitle');
-            this.transitionBtn = document.getElementById('transition-btn');
-
-            // Intro Elements
-            this.introScreen = document.getElementById('intro-screen');
-            this.startBtn = document.getElementById('start-btn');
-
-            // Mobile Instruction
-            this.mobileInstruction = document.getElementById('mobile-instruction');
-
-            // Init
-            this.realSteps = this.data.filter(s => !s.type).length;
-            this.totalSteps.textContent = this.realSteps;
-
-            this.init();
-        }
-
-        init() {
-            setTimeout(() => {
-                this.loading.classList.add('hidden');
-                this.content.classList.remove('hidden');
-                this.renderStep(0);
-            }, 500);
-
-            this.restartBtn.addEventListener('click', () => {
-                this.restartBtn.classList.add('hidden');
-                this.renderStep(0);
-            });
-
-            this.backBtn.addEventListener('click', () => {
-                this.goToPreviousStep();
-            });
-
-            this.transitionBtn.addEventListener('click', () => {
-                this.advanceToNextStep();
-            });
-
-            this.startBtn.addEventListener('click', () => {
-                // Find index of Step 1
-                const nextIndex = this.data.findIndex(s => s.id === 1);
-                if (nextIndex !== -1) {
-                    this.renderStep(nextIndex);
-                }
-            });
-        }
-
-        advanceToNextStep() {
-            const step = this.data[this.currentStepIndex];
-            if (step.nextStep) {
-                const nextIndex = this.data.findIndex(s => s.id === step.nextStep);
-                if (nextIndex !== -1) {
-                    this.renderStep(nextIndex);
-                }
-            }
-        }
-
-        goToPreviousStep() {
-            if (this.currentStepIndex > 0) {
-                // Determine logic for previous step.
-                // Simple decrement isn't enough because steps might not be sequential in array order (though they are here)
-                // But generally we can just go back to previous index since history is linear in this demo
-                this.renderStep(this.currentStepIndex - 1);
-            }
-        }
-
-        renderStep(index) {
-            this.currentStepIndex = index;
-            const step = this.data[index];
-
-            // Handle Intro Step
-            if (step.type === 'intro') {
-                this.image.parentElement.classList.add('hidden');
-                this.layer.classList.add('hidden');
-                this.introScreen.classList.remove('hidden');
-                this.transitionScreen.classList.add('hidden');
-                this.progressBar.style.width = '0%';
-                this.backBtn.classList.add('hidden');
-                return;
-            } else {
-                this.introScreen.classList.add('hidden');
-                this.mobileInstruction.classList.add('hidden'); // Default hide, show later if needed
-                this.backBtn.classList.remove('hidden');
-            }
-
-            // Handle Transition Step
-            if (step.type === 'transition') {
-                this.layer.classList.add('hidden');
-                this.transitionScreen.classList.remove('hidden');
-                this.transitionTitle.textContent = step.title;
-                this.transitionSubtitle.textContent = step.subtitle;
-                this.mobileInstruction.classList.add('hidden');
-                return;
-            } else {
-                this.transitionScreen.classList.add('hidden');
-                this.image.parentElement.classList.remove('hidden');
-                this.layer.classList.remove('hidden');
-                this.mobileInstruction.classList.remove('hidden');
-            }
-
-            // Update Image
-            this.image.style.opacity = '0';
-
-            setTimeout(() => {
-                this.image.src = step.image;
-                this.image.onload = () => {
-                    this.image.style.opacity = '1';
-                };
-            }, 150);
-
-            // Update Progress
-            let currentStepNum = typeof step.id === 'number' ? step.id : this.currentStepIndex;
-            const progress = (currentStepNum / this.realSteps) * 100;
-            this.progressBar.style.width = `${progress}%`;
-
-            if (typeof step.id === 'number') {
-                this.stepCount.textContent = step.id;
-            }
-
-            // Clear existing hotspots and annotations
-            this.layer.innerHTML = '';
-
-            // Add Hotspots
-            if (step.hotspots) {
-                step.hotspots.forEach(hotspotData => {
-                    this.createHotspot(hotspotData);
-                });
-            }
-
-            // Add Annotations
-            if (step.annotations) {
-                step.annotations.forEach(note => {
-                    this.createAnnotation(note);
-                });
-            }
-
-            // Update Mobile Instruction
-            if (step.hotspots && step.hotspots.length > 0) {
-                // Use text from first hotspot for simpler mobile instruction
-                this.mobileInstruction.textContent = step.hotspots[0].text;
-                this.mobileInstruction.classList.remove('hidden');
-            } else {
-                this.mobileInstruction.classList.add('hidden');
-            }
-
-            // Handle Last Step
-            if (step.isLast) {
-                this.restartBtn.classList.remove('hidden');
-            } else {
-                this.restartBtn.classList.add('hidden');
-            }
-        }
-
-        createHotspot(data) {
-            const clone = this.template.content.cloneNode(true);
-            const hotspot = clone.querySelector('.hotspot');
-            const tooltip = clone.querySelector('.hotspot-tooltip');
-
-            hotspot.style.left = `${data.x}%`;
-            hotspot.style.top = `${data.y}%`;
-            tooltip.textContent = data.text;
-
-            hotspot.addEventListener('click', () => {
-                if (data.nextStep) {
-                    const nextIndex = this.data.findIndex(s => s.id === data.nextStep);
-                    if (nextIndex !== -1) {
-                        this.renderStep(nextIndex);
-                    }
-                }
-            });
-
-            this.layer.appendChild(hotspot);
-        }
-
-        createAnnotation(data) {
-            const note = document.createElement('div');
-            note.className = 'annotation';
-            note.textContent = data.text;
-            note.style.left = `${data.x}%`;
-            note.style.top = `${data.y}%`;
-
-            this.layer.appendChild(note);
-        }
-    }
-
-    // Start
-    document.addEventListener('DOMContentLoaded', () => {
-        new DemoPlayer(window.demoData);
-
-        // Expand Logic
-        const expandBtn = document.getElementById('demo-expand-btn');
-        const container = document.getElementById('demo-video-container');
-        const maximizeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize-2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>`;
-        const minimizeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-minimize-2"><polyline points="4 14 10 14 10 20"></polyline><polyline points="20 10 14 10 14 4"></polyline><line x1="14" y1="10" x2="21" y2="3"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>`;
-
-        // Placeholder to prevent layout shift
-        const placeholder = document.createElement('div');
-        placeholder.style.display = 'none'; // Initially hidden
-
-        function toggleFullscreen(isFullscreen) {
-            if (isFullscreen) {
-                // Determine current height to keep placeholder sized correctly (optional but good for preventing jump)
-                placeholder.style.height = container.offsetHeight + 'px';
-                placeholder.style.width = '100%';
-                placeholder.style.display = 'block';
-                placeholder.className = container.className.replace('reveal-on-scroll', '').replace('delay-300', ''); // Copy basic layout classes but remove animations
-
-                // Swap
-                container.parentNode.insertBefore(placeholder, container);
-                document.body.appendChild(container);
-
-                // Add class after move
-                setTimeout(() => container.classList.add('demo-fullscreen'), 10);
-
-                expandBtn.innerHTML = minimizeIcon;
-                expandBtn.setAttribute('aria-label', 'Minimize Demo');
-                document.body.style.overflow = 'hidden';
-            } else {
-                container.classList.remove('demo-fullscreen');
-
-                // Move back
-                if (placeholder.parentNode) {
-                    placeholder.parentNode.insertBefore(container, placeholder);
-                    placeholder.remove();
-                }
-
-                expandBtn.innerHTML = maximizeIcon;
-                expandBtn.setAttribute('aria-label', 'Expand Demo');
-                document.body.style.overflow = '';
-            }
-        }
-
-        if (expandBtn) {
-            expandBtn.addEventListener('click', () => {
-                const isFullscreen = !container.classList.contains('demo-fullscreen');
-                toggleFullscreen(isFullscreen);
-            });
-        }
-
-        // Close fullscreen on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && container.classList.contains('demo-fullscreen')) {
-                toggleFullscreen(false);
-            }
-        });
-    });
-</script>
+<script src="demo/script.js"></script>
 
 </html>
