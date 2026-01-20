@@ -13,8 +13,10 @@
     <meta name="keywords"
         content="Shadow AI, AI Security, PII Detection, LLM Security, Enterprise AI, AI Data Leakage, ChatGPT Security, AI Compliance">
     <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
     <meta property="og:title" content="Sanitized Ai - Clear Shadow AI Risks With Sanitized Ai">
+    <meta property="og:image" content="https://sanitized.ai/logo-horizontal-blue.png">
     <meta property="og:description"
         content="Monitor and protect your organization from shadow AI usage and sensitive data exposure in LLM prompts.">
     <meta property="og:type" content="website">
@@ -958,7 +960,7 @@
                         </div>
 
                         <!-- Mobile Menu Button -->
-                        <button id="mobile-menu-btn"
+                        <button id="mobile-menu-btn" aria-label="Open menu"
                             class="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1112,7 +1114,7 @@
                                     <div id="loading" class="loading" data-i18n="demo.loading">Loading Demo...</div>
                                     <div id="demo-content" class="demo-content hidden">
                                         <div class="image-container">
-                                            <img id="current-image" src="" alt="Demo Screen">
+                                            <img id="current-image" src="" alt="Demo Screen" loading="lazy">
                                             <div id="hotspaces-layer"></div>
                                         </div>
 
