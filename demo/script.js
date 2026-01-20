@@ -214,6 +214,14 @@ class DemoPlayer {
 
         hotspot.style.left = `${data.x}%`;
         hotspot.style.top = `${data.y}%`;
+
+        // Smart positioning: avoid overflow
+        if (data.x > 70) {
+            tooltip.classList.add('align-right');
+        } else if (data.x < 30) {
+            tooltip.classList.add('align-left');
+        }
+
         tooltip.textContent = data.text;
 
         hotspot.addEventListener('click', () => {

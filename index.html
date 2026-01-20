@@ -81,6 +81,7 @@
             }
         }
     </script>
+    <script src="js/i18n.js"></script>
 
     <style>
         /* Custom Glassmorphic Styles matching existing theme */
@@ -260,11 +261,11 @@
 
         /* Interactive Demo Styles (Scoped) */
         :root {
-            --demo-primary: #6366f1;
-            --demo-primary-hover: #4f46e5;
+            --demo-primary: #f59e0b;
+            --demo-primary-hover: #d97706;
             --demo-tooltip-bg: rgba(15, 23, 42, 0.95);
             --demo-text: #f8fafc;
-            --demo-ring: rgba(99, 102, 241, 0.6);
+            --demo-ring: rgba(245, 158, 11, 0.6);
         }
 
         .demo-wrapper {
@@ -545,22 +546,22 @@
 
         .transition-btn {
             background: var(--demo-primary);
-            color: white;
+            color: #0f172a;
             border: none;
             padding: 16px 40px;
             border-radius: 12px;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
             animation: intense-pulse 2s infinite;
         }
 
         .transition-btn:hover {
             background: var(--demo-primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.8);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.8);
         }
 
         /* Intro Screen */
@@ -598,14 +599,14 @@
 
         .start-btn {
             background: linear-gradient(135deg, var(--demo-primary) 0%, var(--demo-primary-hover) 100%);
-            color: white;
+            color: #0f172a;
             border: none;
             padding: 20px 64px;
             border-radius: 50px;
             font-size: 1.25rem;
             font-weight: 700;
             cursor: pointer;
-            box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             animation: button-pulse 2s infinite;
             letter-spacing: 0.5px;
@@ -615,41 +616,41 @@
 
         .start-btn:hover {
             transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.6);
-            background: linear-gradient(135deg, var(--demo-primary-hover) 0%, #4338ca 100%);
+            box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.6);
+            background: linear-gradient(135deg, var(--demo-primary-hover) 0%, #b45309 100%);
         }
 
         @keyframes intense-pulse {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.9);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.9);
             }
 
             70% {
                 transform: scale(1.05);
-                box-shadow: 0 0 0 20px rgba(99, 102, 241, 0);
+                box-shadow: 0 0 0 20px rgba(245, 158, 11, 0);
             }
 
             100% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
             }
         }
 
         @keyframes button-pulse {
             0% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
             }
 
             70% {
                 transform: scale(1.05);
-                box-shadow: 0 0 0 15px rgba(99, 102, 241, 0);
+                box-shadow: 0 0 0 15px rgba(245, 158, 11, 0);
             }
 
             100% {
                 transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
             }
         }
 
@@ -867,24 +868,28 @@
                         <!-- Desktop Nav -->
                         <div class="hidden md:flex items-center gap-8">
                             <a href="#features"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">Features</a>
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.features">Features</a>
                             <a href="#how-it-works"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">How
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.howItWorks">How
                                 It Works</a>
                             <a href="#security"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">Security</a>
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.security">Security</a>
                             <a href="#pricing"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">Pricing</a>
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.pricing">Pricing</a>
                         </div>
 
                         <!-- CTA Buttons -->
                         <div class="hidden md:flex items-center gap-3">
                             <button
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-white/[0.05] hover:text-foreground h-9 rounded-lg px-4"
-                                onclick="window.location.href='/index.html'">Log In</button>
+                                onclick="window.location.href='/index.html'" data-i18n="nav.login">Log In</button>
                             <button
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:brightness-110 h-9 rounded-lg px-4"
-                                onclick="window.location.href='/intake.html'">Get
+                                onclick="window.location.href='/intake.html'" data-i18n="nav.getStarted">Get
                                 Started</button>
                         </div>
 
@@ -937,15 +942,16 @@
                         <div class="max-w-4xl mx-auto text-center">
                             <div class="badge-pill mb-8">
                                 <span class="flex h-2 w-2 rounded-full bg-success animate-pulse"></span>
-                                <span>Ready to protect your business from AI data leakage</span>
+                                <span data-i18n="hero.badge">Ready to protect your business from AI data leakage</span>
                             </div>
                             <h1
                                 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 text-balance reveal-on-scroll">
-                                Clear Shadow AI Risks<br>
-                                <span class="gradient-text">With Sanitized AI</span>
+                                <span data-i18n="hero.title.prefix">Clear Shadow AI Risks</span><br>
+                                <span class="gradient-text"><span data-i18n="hero.title.suffix">With Sanitized
+                                        AI</span></span>
                             </h1>
-                            <p
-                                class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-balance reveal-on-scroll delay-100">
+                            <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 text-balance reveal-on-scroll delay-100"
+                                data-i18n="hero.subtitle">
                                 Monitor, detect, and protect against unauthorized AI usage across your organization.
                                 Catch PII leaks and sensitive data exposure in LLM prompts before they become breaches.
                             </p>
@@ -954,7 +960,7 @@
                                 <button
                                     class="inline-flex items-center justify-center gap-2 whitespace-nowrap ring-offset-background transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] text-primary-foreground font-semibold shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] hover:brightness-110 h-14 px-10 text-lg rounded-xl"
                                     onclick="window.location.href='/intake.html'">
-                                    Request Early Access
+                                    <span data-i18n="hero.cta.access">Request Early Access</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="lucide lucide-arrow-right h-5 w-5">
@@ -969,19 +975,25 @@
                                         stroke-linejoin="round" class="lucide lucide-play h-5 w-5">
                                         <polygon points="6 3 20 12 6 21 6 3"></polygon>
                                     </svg>
-                                    Start Interactive Demo
+                                    <span data-i18n="hero.cta.demo">Start Interactive Demo</span>
                                 </button>
                             </div>
                         </div>
 
                         <div class="mt-16 pt-8 border-t border-white/[0.08]">
-                            <p class="eyebrow mb-6">Trusted by security teams at leading enterprises</p>
+                            <p class="eyebrow mb-6" data-i18n="hero.trusted">Trusted by security teams at leading
+                                enterprises</p>
                             <div class="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-40">
-                                <div class="text-lg font-semibold text-muted-foreground">Fortune 500</div>
-                                <div class="text-lg font-semibold text-muted-foreground">Enterprise</div>
-                                <div class="text-lg font-semibold text-muted-foreground">Startup</div>
-                                <div class="text-lg font-semibold text-muted-foreground">Government</div>
-                                <div class="text-lg font-semibold text-muted-foreground">Healthcare</div>
+                                <div class="text-lg font-semibold text-muted-foreground"
+                                    data-i18n="hero.trusted.fortune">Fortune 500</div>
+                                <div class="text-lg font-semibold text-muted-foreground"
+                                    data-i18n="hero.trusted.enterprise">Enterprise</div>
+                                <div class="text-lg font-semibold text-muted-foreground"
+                                    data-i18n="hero.trusted.startup">Startup</div>
+                                <div class="text-lg font-semibold text-muted-foreground"
+                                    data-i18n="hero.trusted.government">Government</div>
+                                <div class="text-lg font-semibold text-muted-foreground"
+                                    data-i18n="hero.trusted.healthcare">Healthcare</div>
                             </div>
                         </div>
 
@@ -1011,7 +1023,7 @@
                                             <polyline points="12 19 5 12 12 5"></polyline>
                                         </svg>
                                     </button>
-                                    <div id="loading" class="loading">Loading Demo...</div>
+                                    <div id="loading" class="loading" data-i18n="demo.loading">Loading Demo...</div>
                                     <div id="demo-content" class="demo-content hidden">
                                         <div class="image-container">
                                             <img id="current-image" src="" alt="Demo Screen">
@@ -1021,15 +1033,17 @@
                                         <div id="intro-screen" class="intro-screen hidden">
                                             <div class="intro-content">
                                                 <h1>Sanitized AI</h1>
-                                                <p>Real-time Risk Management for AI</p>
-                                                <button id="start-btn" class="start-btn">Start Interactive Demo</button>
+                                                <p data-i18n="demo.intro.subtitle">Real-time Risk Management for AI</p>
+                                                <button id="start-btn" class="start-btn"
+                                                    data-i18n="demo.intro.start">Start Interactive Demo</button>
                                             </div>
                                         </div>
 
                                         <div id="transition-screen" class="transition-screen hidden">
                                             <h1 id="transition-title"></h1>
                                             <p id="transition-subtitle"></p>
-                                            <button id="transition-btn" class="transition-btn">Continue</button>
+                                            <button id="transition-btn" class="transition-btn"
+                                                data-i18n="demo.transition.continue">Continue</button>
                                         </div>
 
                                         <div class="demo-controls">
@@ -1118,10 +1132,12 @@
         <section id="features" class="py-24 relative">
             <div class="container mx-auto relative z-10 px-6">
                 <div class="max-w-2xl mx-auto text-center mb-16">
-                    <span class="eyebrow text-primary mb-4 block">Features</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Complete Visibility Into<br><span
-                            class="gradient-text">Enterprise AI Usage</span></h2>
-                    <p class="text-muted-foreground text-lg">Everything you need to monitor, control, and secure
+                    <span class="eyebrow text-primary mb-4 block" data-i18n="features.eyebrow">Features</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4"><span data-i18n="features.title.prefix">Complete
+                            Visibility Into</span><br><span class="gradient-text"
+                            data-i18n="features.title.suffix">Enterprise AI Usage</span></h2>
+                    <p class="text-muted-foreground text-lg" data-i18n="features.subtitle">Everything you need to
+                        monitor, control, and secure
                         AI adoption across your organization.</p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1137,8 +1153,9 @@
                                 <circle cx="12" cy="12" r="3"></circle>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Shadow AI Detection</h3>
-                        <p class="text-muted-foreground">Automatically discover and track all AI tools being
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="features.card1.title">Shadow AI Detection</h3>
+                        <p class="text-muted-foreground" data-i18n="features.card1.desc">Automatically discover and
+                            track all AI tools being
                             used across your organization, including ChatGPT, Claude, Gemini, and more.</p>
                     </div>
                     <!-- Feature 2 -->
@@ -1153,8 +1170,9 @@
                                 <path d="M12 17h.01"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">PII Leak Prevention</h3>
-                        <p class="text-muted-foreground">Real-time scanning of prompts to detect and block
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="features.card2.title">PII Leak Prevention</h3>
+                        <p class="text-muted-foreground" data-i18n="features.card2.desc">Real-time scanning of prompts
+                            to detect and block
                             sensitive data including SSNs, credit cards, health records, and proprietary
                             information.</p>
                     </div>
@@ -1171,8 +1189,9 @@
                                 <circle cx="5" cy="14" r="3"></circle>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Prompt Privacy</h3>
-                        <p class="text-muted-foreground">Admins see only flagged content, not the full prompt.
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="features.card3.title">Prompt Privacy</h3>
+                        <p class="text-muted-foreground" data-i18n="features.card3.desc">Admins see only flagged
+                            content, not the full prompt.
                             Conversations remain private.</p>
                     </div>
                     <!-- Feature 4 -->
@@ -1187,8 +1206,9 @@
                                 <path d="M8 17v-3"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Risk Dashboards</h3>
-                        <p class="text-muted-foreground">Executive-ready reporting with risk scores, trend
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="features.card4.title">Risk Dashboards</h3>
+                        <p class="text-muted-foreground" data-i18n="features.card4.desc">Executive-ready reporting with
+                            risk scores, trend
                             analysis, and actionable insights for your security posture.</p>
                     </div>
                     <!-- Feature 5 -->
@@ -1201,8 +1221,9 @@
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Policy Enforcement</h3>
-                        <p class="text-muted-foreground">Define and enforce AI usage policies at the
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="features.card5.title">Policy Enforcement</h3>
+                        <p class="text-muted-foreground" data-i18n="features.card5.desc">Define and enforce AI usage
+                            policies at the
                             organizational level. Block, warn, or allow with full audit trails.</p>
                     </div>
                     <!-- Feature 6 -->
@@ -1217,8 +1238,9 @@
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold mb-2">Team Insights</h3>
-                        <p class="text-muted-foreground">Understand AI adoption patterns across departments.
+                        <h3 class="text-xl font-semibold mb-2" data-i18n="features.card6.title">Team Insights</h3>
+                        <p class="text-muted-foreground" data-i18n="features.card6.desc">Understand AI adoption patterns
+                            across departments.
                             Identify training needs and optimize productivity safely.</p>
                     </div>
                 </div>
@@ -1597,20 +1619,11 @@
             // Video Player Logic
             const watchDemoBtn = document.getElementById('watch-demo-btn');
             const videoContainer = document.getElementById('demo-video-container');
-            const videoOverlay = document.getElementById('video-overlay');
-            const heroVideo = document.getElementById('hero-video');
 
             function playDemo() {
-                if (videoContainer && heroVideo && videoOverlay) {
+                if (videoContainer) {
                     // Smooth scroll to video
                     videoContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                    // Allow a moment for scroll to start/finish before playing
-                    setTimeout(() => {
-                        videoOverlay.classList.add('hidden'); // Hide overlay
-                        heroVideo.classList.remove('hidden'); // Show video
-                        heroVideo.play().catch(e => console.log('Autoplay prevented:', e));
-                    }, 500);
                 }
             }
 
@@ -1618,9 +1631,7 @@
                 watchDemoBtn.addEventListener('click', playDemo);
             }
 
-            if (videoOverlay) {
-                videoOverlay.addEventListener('click', playDemo);
-            }
+
         });
     </script>
 </body>

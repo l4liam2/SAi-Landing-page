@@ -148,7 +148,12 @@ img {
     padding: 8px 16px;
     border-radius: 6px;
     font-size: 0.9rem;
-    white-space: nowrap;
+    white-space: normal;
+    /* Allow wrapping */
+    max-width: 250px;
+    /* Force wrap for long text */
+    text-align: center;
+    /* Center text */
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -171,6 +176,39 @@ img {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+}
+
+/* Smart Tooltip Positioning */
+.hotspot-tooltip.align-right {
+    left: auto;
+    right: 0;
+    transform: translateY(-10px);
+}
+
+.hotspot:hover .hotspot-tooltip.align-right {
+    transform: translateY(0);
+}
+
+.hotspot-tooltip.align-right::after {
+    left: auto;
+    right: 10px;
+    /* 16px center - 6px half-width */
+    margin-left: 0;
+}
+
+.hotspot-tooltip.align-left {
+    left: 0;
+    transform: translateY(-10px);
+}
+
+.hotspot:hover .hotspot-tooltip.align-left {
+    transform: translateY(0);
+}
+
+.hotspot-tooltip.align-left::after {
+    left: 10px;
+    /* 16px center - 6px half-width */
+    margin-left: 0;
 }
 
 /* Annotations (Static Info Boxes) */
@@ -287,6 +325,7 @@ img {
     margin-bottom: 16px;
     background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -334,6 +373,7 @@ img {
     margin-bottom: 12px;
     background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
 }
