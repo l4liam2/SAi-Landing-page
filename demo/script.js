@@ -7,7 +7,7 @@ const demoData = [
     },
 
     // Step 1: Click Extension Icon (Top Right)
-    { id: 1, image: '1.png', hotspots: [{ x: 87.5, y: 6.5, text: "User makes sure they have the extension installed", nextStep: 2 }] },
+    { id: 1, image: '1.png', hotspots: [{ x: 87.5, y: 6.5, text: "User makes sure they have the Sanitized Ai extension installed", nextStep: 2 }] },
 
     // Step 2: Click Text Input (Center-Left)
     { id: 2, image: '2.png', hotspots: [{ x: 34, y: 51, text: "User Types Their Prompt", nextStep: 3 }] },
@@ -214,14 +214,6 @@ class DemoPlayer {
 
         hotspot.style.left = `${data.x}%`;
         hotspot.style.top = `${data.y}%`;
-
-        // Smart positioning: avoid overflow
-        if (data.x > 70) {
-            tooltip.classList.add('align-right');
-        } else if (data.x < 30) {
-            tooltip.classList.add('align-left');
-        }
-
         tooltip.textContent = data.text;
 
         hotspot.addEventListener('click', () => {

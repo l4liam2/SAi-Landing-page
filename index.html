@@ -912,21 +912,26 @@
                     class="hidden md:hidden fixed inset-x-0 top-[64px] bg-background/95 backdrop-blur-xl border-b border-white/10 p-6 shadow-2xl z-40 transition-all duration-300 ease-in-out">
                     <div class="flex flex-col space-y-4">
                         <a href="#features"
-                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">Features</a>
+                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                            data-i18n="nav.features">Features</a>
                         <a href="#how-it-works"
-                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">How
+                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                            data-i18n="nav.howItWorks">How
                             It Works</a>
                         <a href="#security"
-                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">Security</a>
+                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                            data-i18n="nav.security">Security</a>
                         <a href="#pricing"
-                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">Pricing</a>
+                            class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                            data-i18n="nav.pricing">Pricing</a>
                         <div class="pt-4 flex flex-col gap-3">
                             <button
                                 class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-white/[0.05] hover:text-foreground h-10 rounded-lg border border-white/10"
-                                onclick="window.location.href='/index.html'">Log In</button>
+                                onclick="window.location.href='/index.html'" data-i18n="nav.login">Log In</button>
                             <button
                                 class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:brightness-110 h-10 rounded-lg"
-                                onclick="window.location.href='/intake.html'">Get Started</button>
+                                onclick="window.location.href='/intake.html'" data-i18n="nav.getStarted">Get
+                                Started</button>
                         </div>
                     </div>
                 </div>
@@ -1253,11 +1258,14 @@
             </div>
             <div class="container mx-auto px-6 relative z-10">
                 <div class="max-w-2xl mx-auto text-center mb-16">
-                    <span class="eyebrow text-primary mb-4 block reveal-on-scroll">How It Works</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal-on-scroll delay-100">From Deployment to<br>
-                        <span class="gradient-text">Protection in Minutes</span>
+                    <span class="eyebrow text-primary mb-4 block reveal-on-scroll" data-i18n="how.eyebrow">How It
+                        Works</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal-on-scroll delay-100"><span
+                            data-i18n="how.title.prefix">From Deployment to</span><br>
+                        <span class="gradient-text" data-i18n="how.title.suffix">Protection in Minutes</span>
                     </h2>
-                    <p class="text-muted-foreground text-lg reveal-on-scroll delay-200">Get started quickly with our
+                    <p class="text-muted-foreground text-lg reveal-on-scroll delay-200" data-i18n="how.subtitle">Get
+                        started quickly with our
                         streamlined onboarding process. No complicated setup
                         required.</p>
                 </div>
@@ -1311,8 +1319,9 @@
                                     class="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold border border-background z-20">
                                     01</div>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Deploy in Minutes</h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed">Quick browser extension deployment
+                            <h3 class="text-xl font-semibold mb-3" data-i18n="how.step1.title">Deploy in Minutes</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed" data-i18n="how.step1.desc">Quick
+                                browser extension deployment
                                 or API integration. No complex infrastructure changes required.</p>
                         </div>
 
@@ -1334,8 +1343,9 @@
                                     class="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold border border-background z-20">
                                     02</div>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Monitor Everything</h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed">Automatically detect AI tool usage
+                            <h3 class="text-xl font-semibold mb-3" data-i18n="how.step2.title">Monitor Everything</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed" data-i18n="how.step2.desc">
+                                Automatically detect AI tool usage
                                 and scan all prompts for sensitive data in real-time.</p>
                         </div>
 
@@ -1355,8 +1365,9 @@
                                     class="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold border border-background z-20">
                                     03</div>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Get Alerted</h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed">Receive instant notifications when
+                            <h3 class="text-xl font-semibold mb-3" data-i18n="how.step3.title">Get Alerted</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed" data-i18n="how.step3.desc">Receive
+                                instant notifications when
                                 policy violations or data leaks are detected.</p>
                         </div>
 
@@ -1378,8 +1389,9 @@
                                     class="absolute -top-3 -right-3 w-7 h-7 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xs font-bold border border-background z-20">
                                     04</div>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Stay Compliant</h3>
-                            <p class="text-muted-foreground text-sm leading-relaxed">Generate audit-ready reports and
+                            <h3 class="text-xl font-semibold mb-3" data-i18n="how.step4.title">Stay Compliant</h3>
+                            <p class="text-muted-foreground text-sm leading-relaxed" data-i18n="how.step4.desc">Generate
+                                audit-ready reports and
                                 maintain compliance with data protection regulations.</p>
                         </div>
                     </div>
@@ -1393,10 +1405,13 @@
                 <div class="max-w-5xl mx-auto">
                     <div class="grid lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span class="eyebrow text-primary mb-4 block">Enterprise Security</span>
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6">Security You Can<br><span
-                                    class="gradient-text">Trust and Verify</span></h2>
-                            <p class="text-muted-foreground text-lg mb-8">Built from the ground up with
+                            <span class="eyebrow text-primary mb-4 block" data-i18n="security.eyebrow">Enterprise
+                                Security</span>
+                            <h2 class="text-3xl md:text-4xl font-bold mb-6"><span
+                                    data-i18n="security.title.prefix">Security You Can</span><br><span
+                                    class="gradient-text" data-i18n="security.title.suffix">Trust and Verify</span></h2>
+                            <p class="text-muted-foreground text-lg mb-8" data-i18n="security.subtitle">Built from the
+                                ground up with
                                 enterprise security requirements in mind. Your data never leaves your control,
                                 and we maintain the highest security standards.</p>
                         </div>
@@ -1414,29 +1429,32 @@
                                         <div class="grid grid-cols-2 gap-3">
                                             <div class="glass p-3 rounded-xl">
                                                 <div class="text-2xl font-bold text-primary">99.9%</div>
-                                                <div class="eyebrow mt-1">Uptime SLA</div>
+                                                <div class="eyebrow mt-1" data-i18n="security.dashboard.uptime">Uptime
+                                                    SLA</div>
                                             </div>
                                             <div class="glass p-3 rounded-xl">
                                                 <div class="text-2xl font-bold text-success">0</div>
-                                                <div class="eyebrow mt-1">Data Breaches</div>
+                                                <div class="eyebrow mt-1" data-i18n="security.dashboard.breaches">Data
+                                                    Breaches</div>
                                             </div>
                                         </div>
                                         <div class="space-y-2 font-mono text-xs">
                                             <div class="flex items-center gap-2"><span
-                                                    class="text-success">✓</span><span
-                                                    class="text-muted-foreground">Encryption verified...</span>
+                                                    class="text-success">✓</span><span class="text-muted-foreground"
+                                                    data-i18n="security.check.encryption">Encryption verified...</span>
                                             </div>
                                             <div class="flex items-center gap-2"><span
-                                                    class="text-success">✓</span><span
-                                                    class="text-muted-foreground">Auth tokens rotated...</span>
+                                                    class="text-success">✓</span><span class="text-muted-foreground"
+                                                    data-i18n="security.check.tokens">Auth tokens rotated...</span>
                                             </div>
                                             <div class="flex items-center gap-2"><span
-                                                    class="text-success">✓</span><span
-                                                    class="text-muted-foreground">Audit logs synced...</span>
+                                                    class="text-success">✓</span><span class="text-muted-foreground"
+                                                    data-i18n="security.check.logs">Audit logs synced...</span>
                                             </div>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-primary animate-pulse">●</span><span
-                                                    class="text-muted-foreground">Monitoring active...</span>
+                                                    class="text-muted-foreground"
+                                                    data-i18n="security.check.monitoring">Monitoring active...</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1468,15 +1486,18 @@
 
                     <div class="relative z-10">
                         <span
-                            class="badg-pill inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary mb-6">
+                            class="badg-pill inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-medium text-primary mb-6"
+                            data-i18n="pricing.badge">
                             Enterprise Ready
                         </span>
 
                         <h2 class="text-3xl md:text-5xl font-bold mb-6">
-                            Tailored for Your <span class="gradient-text">Enterprise</span>
+                            <span data-i18n="pricing.title.prefix">Tailored for Your</span> <span class="gradient-text"
+                                data-i18n="pricing.title.suffix">Enterprise</span>
                         </h2>
 
-                        <p class="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+                        <p class="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto"
+                            data-i18n="pricing.subtitle">
                             Get full visibility and control over your AI usage today. We offer custom deployment
                             options, dedicated support, and volume licensing.
                         </p>
@@ -1486,11 +1507,14 @@
                                 class="flex flex-col gap-2 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-infinity h-6 w-6 text-primary mb-2">
-                                    <path
-                                        d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4Z" />
+                                    stroke-linejoin="round" class="lucide lucide-layout-grid h-6 w-6 text-primary mb-2">
+                                    <rect width="7" height="7" x="3" y="3" rx="1" />
+                                    <rect width="7" height="7" x="14" y="3" rx="1" />
+                                    <rect width="7" height="7" x="14" y="14" rx="1" />
+                                    <rect width="7" height="7" x="3" y="14" rx="1" />
                                 </svg>
-                                <span class="font-semibold">Unlimited Seats</span>
+                                <span class="font-semibold" data-i18n="pricing.feature.seats">Modular Licensing
+                                    Available</span>
                             </div>
                             <div
                                 class="flex flex-col gap-2 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
@@ -1502,7 +1526,7 @@
                                         d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                                     <path d="m9 12 2 2 4-4" />
                                 </svg>
-                                <span class="font-semibold">Custom PII Detection</span>
+                                <span class="font-semibold" data-i18n="pricing.feature.pii">Custom PII Detection</span>
                             </div>
                             <div
                                 class="flex flex-col gap-2 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
@@ -1516,14 +1540,14 @@
                                     <circle cx="12" cy="12" r="3" />
                                     <circle cx="12" cy="19" r="6" />
                                 </svg>
-                                <span class="font-semibold">Dedicated Support</span>
+                                <span class="font-semibold" data-i18n="pricing.feature.support">Dedicated Support</span>
                             </div>
                         </div>
 
                         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <button onclick="window.location.href='/intake.html'"
                                 class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:brightness-110 h-11 rounded-md px-8">
-                                Contact Sales
+                                <span data-i18n="pricing.cta">Contact Sales</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="lucide lucide-arrow-right h-4 w-4">
@@ -1548,7 +1572,8 @@
                             <span class="gradient-text">Ai</span></span>
                     </a>
 
-                    <p class="text-xs text-muted-foreground text-center">© 2026 Sanitized AI Inc. All rights reserved.
+                    <p class="text-xs text-muted-foreground text-center" data-i18n="footer.rights">© 2026 Sanitized AI
+                        Inc. All rights reserved.
                     </p>
 
                     <div class="flex items-center gap-4">
@@ -1566,7 +1591,8 @@
                                 <circle cx="4" cy="4" r="2"></circle>
                             </svg>
                             <span
-                                class="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">Follow
+                                class="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors"
+                                data-i18n="footer.linkedin">Follow
                                 us on LinkedIn</span>
                         </a>
                     </div>

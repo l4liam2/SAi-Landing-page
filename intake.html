@@ -146,6 +146,7 @@
             box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
         }
     </style>
+    <script src="js/i18n.js"></script>
 </head>
 
 <body>
@@ -164,14 +165,18 @@
                         <!-- Desktop Nav -->
                         <div class="hidden md:flex items-center gap-8">
                             <a href="/index.html#features"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">Features</a>
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.features">Features</a>
                             <a href="/index.html#how-it-works"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">How
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.howItWorks">How
                                 It Works</a>
                             <a href="/index.html#security"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">Security</a>
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.security">Security</a>
                             <a href="/index.html#pricing"
-                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">Pricing</a>
+                                class="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                data-i18n="nav.pricing">Pricing</a>
                             <!-- Mobile Menu Button -->
                             <button id="mobile-menu-btn"
                                 class="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors">
@@ -191,17 +196,22 @@
                         class="hidden md:hidden fixed inset-x-0 top-[64px] bg-background/95 backdrop-blur-xl border-b border-white/10 p-6 shadow-2xl z-40 transition-all duration-300 ease-in-out">
                         <div class="flex flex-col space-y-4">
                             <a href="/index.html#features"
-                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">Features</a>
+                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                                data-i18n="nav.features">Features</a>
                             <a href="/index.html#how-it-works"
-                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">How
+                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                                data-i18n="nav.howItWorks">How
                                 It Works</a>
                             <a href="/index.html#security"
-                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">Security</a>
+                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                                data-i18n="nav.security">Security</a>
                             <a href="/index.html#pricing"
-                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block">Pricing</a>
+                                class="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2 block"
+                                data-i18n="nav.pricing">Pricing</a>
                             <div class="pt-4 flex flex-col gap-3">
                                 <a href="/index.html"
-                                    class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-white/[0.05] hover:text-foreground h-10 rounded-lg border border-white/10">Back
+                                    class="w-full inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-white/[0.05] hover:text-foreground h-10 rounded-lg border border-white/10"
+                                    data-i18n="nav.backToHome">Back
                                     to Home</a>
                             </div>
                         </div>
@@ -212,9 +222,10 @@
                 <div class="container mx-auto max-w-2xl relative z-10">
                     <div class="glass-card p-8 md:p-12">
                         <div class="text-center mb-10">
-                            <h1 class="text-3xl md:text-4xl font-bold mb-4">Get Started with <span
-                                    class="gradient-text">Sanitized Ai</span></h1>
-                            <p class="text-muted-foreground">Complete the form below to request early access or schedule
+                            <h1 class="text-3xl md:text-4xl font-bold mb-4"><span data-i18n="intake.title.prefix">Get
+                                    Started with</span> <span class="gradient-text">Sanitized Ai</span></h1>
+                            <p class="text-muted-foreground" data-i18n="intake.subtitle">Complete the form below to
+                                request early access or schedule
                                 a demo.</p>
                         </div>
 
@@ -227,55 +238,67 @@
 
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
-                                    <label for="name" class="text-sm font-medium text-gray-200">Full Name</label>
+                                    <label for="name" class="text-sm font-medium text-gray-200"
+                                        data-i18n="intake.form.name">Full Name</label>
                                     <input type="text" id="name" name="name" required
                                         class="w-full px-4 py-3 rounded-xl bg-black/20 focus:bg-black/30 transition-colors"
-                                        placeholder="John Doe">
+                                        placeholder="John Doe" data-i18n-placeholder="intake.form.namePlaceholder">
                                 </div>
                                 <div class="space-y-2">
-                                    <label for="email" class="text-sm font-medium text-gray-200">Work Email</label>
+                                    <label for="email" class="text-sm font-medium text-gray-200"
+                                        data-i18n="intake.form.email">Work Email</label>
                                     <input type="email" id="email" name="email" required
                                         class="w-full px-4 py-3 rounded-xl bg-black/20 focus:bg-black/30 transition-colors"
-                                        placeholder="john@company.com">
+                                        placeholder="john@company.com"
+                                        data-i18n-placeholder="intake.form.emailPlaceholder">
                                 </div>
                             </div>
 
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
-                                    <label for="company" class="text-sm font-medium text-gray-200">Company Name</label>
+                                    <label for="company" class="text-sm font-medium text-gray-200"
+                                        data-i18n="intake.form.company">Company Name</label>
                                     <input type="text" id="company" name="company" required
                                         class="w-full px-4 py-3 rounded-xl bg-black/20 focus:bg-black/30 transition-colors"
-                                        placeholder="Acme Inc.">
+                                        placeholder="Acme Inc." data-i18n-placeholder="intake.form.companyPlaceholder">
                                 </div>
                                 <div class="space-y-2">
-                                    <label for="role" class="text-sm font-medium text-gray-200">Role</label>
+                                    <label for="role" class="text-sm font-medium text-gray-200"
+                                        data-i18n="intake.form.role">Role</label>
                                     <input type="text" id="role" name="role"
                                         class="w-full px-4 py-3 rounded-xl bg-black/20 focus:bg-black/30 transition-colors"
-                                        placeholder="e.g. CISO, CTO">
+                                        placeholder="e.g. CISO, CTO"
+                                        data-i18n-placeholder="intake.form.rolePlaceholder">
                                 </div>
                             </div>
 
                             <div class="space-y-2">
-                                <label for="interest" class="text-sm font-medium text-gray-200">I am interested
+                                <label for="interest" class="text-sm font-medium text-gray-200"
+                                    data-i18n="intake.form.interest">I am interested
                                     in...</label>
                                 <select id="interest" name="interest"
                                     class="w-full px-4 py-3 rounded-xl bg-black/20 focus:bg-black/30 transition-colors appearance-none cursor-pointer">
-                                    <option value="access">Requesting Early Access</option>
-                                    <option value="demo">Booking a Demo</option>
-                                    <option value="general">General Inquiry</option>
+                                    <option value="access" data-i18n="intake.form.interest.access">Requesting Early
+                                        Access</option>
+                                    <option value="demo" data-i18n="intake.form.interest.demo">Booking a Demo</option>
+                                    <option value="general" data-i18n="intake.form.interest.general">General Inquiry
+                                    </option>
                                 </select>
                             </div>
 
                             <div class="space-y-2">
-                                <label for="message" class="text-sm font-medium text-gray-200">Message
+                                <label for="message" class="text-sm font-medium text-gray-200"
+                                    data-i18n="intake.form.message">Message
                                     (Optional)</label>
                                 <textarea id="message" name="message" rows="4"
                                     class="w-full px-4 py-3 rounded-xl bg-black/20 focus:bg-black/30 transition-colors resize-none"
-                                    placeholder="Tell us about your needs..."></textarea>
+                                    placeholder="Tell us about your needs..."
+                                    data-i18n-placeholder="intake.form.messagePlaceholder"></textarea>
                             </div>
 
                             <button type="submit"
-                                class="w-full py-4 mt-4 bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] hover:shadow-lg hover:shadow-primary/25 rounded-xl text-white font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]">
+                                class="w-full py-4 mt-4 bg-gradient-to-br from-primary to-[hsl(217,91%,50%)] hover:shadow-lg hover:shadow-primary/25 rounded-xl text-white font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98]"
+                                data-i18n="intake.form.submit">
                                 Submit Request
                             </button>
                         </form>
@@ -302,7 +325,8 @@
                             <span class="gradient-text">Ai</span></span>
 
                     </a>
-                    <p class="text-xs text-muted-foreground">© 2026 Sanitized AI Inc. All rights reserved.</p>
+                    <p class="text-xs text-muted-foreground" data-i18n="footer.rights">© 2026 Sanitized AI Inc. All
+                        rights reserved.</p>
                 </div>
             </footer>
         </div>
