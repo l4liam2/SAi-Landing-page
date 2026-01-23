@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Check, Send } from "lucide-react";
 import { useTranslation } from "@/hooks/use-translation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-export default function IntakePage() {
+function IntakeContent() {
     const { t } = useTranslation();
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
 
@@ -182,5 +182,14 @@ export default function IntakePage() {
             </div>
             <Footer />
         </>
+    );
+
+}
+
+export default function IntakePage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen bg-black" />}>
+            <IntakeContent />
+        </Suspense>
     );
 }
