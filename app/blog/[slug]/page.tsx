@@ -44,8 +44,25 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         notFound();
     }
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.metadata.title,
+        description: post.metadata.summary,
+        author: {
+            '@type': 'Person',
+            name: post.metadata.author || 'Sanitized AI Team',
+        },
+        datePublished: post.metadata.date,
+        image: post.metadata.image ? `https://sanitized.ai${post.metadata.image}` : undefined,
+    };
+
     return (
         <Suspense fallback={null}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="flex flex-col min-h-screen bg-background text-foreground">
                 <Navbar />
                 <main className="flex-1 py-24">
